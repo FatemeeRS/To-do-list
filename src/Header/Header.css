@@ -1,0 +1,9 @@
+.Header{
+    background: rgb(137,33,185);
+    background: linear-gradient(90deg, rgba(137,33,185,1) 0%, rgba(20,18,198,0.5357493339132529) 100%);
+    width: 100%;
+    min-height: 200px; 
+}
+
+
+

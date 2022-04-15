@@ -1,0 +1,29 @@
+[
+    {
+        "id": "8846a7c8-69ae-4690-aaa2-b875a65daddc" ,
+        "name": "Stim" ,
+        "image" : "https://dummyimage.com/231x144/cf2dcf/f7f7f7.png",
+        "price" : 20
+    },
+
+    {
+        "id": "befef062-93c3-4a9a-a01e-4115b14c2f09" ,
+        "name": "Fixflex" ,
+        "image" : "https://dummyimage.com/231x144/2dcfc7/f7f7f7.png",
+        "price" : 23
+    },
+
+    {
+        "id": "44b3dbb6-e74f-4ce3-87c1-9b6963dd3469" ,
+        "name": "Toughjoyfax" ,
+        "image" : "https://dummyimage.com/231x144/2dcf38/f7f7f7.png",
+        "price" : 99
+    },
+
+    {
+        "id": "39aa41b3-69ef-4940-857b-7cfc06ba83bf" ,
+        "name": "Tempsoft" ,
+        "image" : "https://dummyimage.com/231x144/cfa72d/f7f7f7.png",
+        "price" : 46
+    }
+]
