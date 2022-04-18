@@ -1,17 +1,30 @@
 import React , {useState} from 'react'
-import ConfirmModal from './Modal/Modal';
+import ConfirmDeleteModal from './ConfirmDeleteModal/ConfirmDeleteModal';
 import './NavBar.css'
 
 
-const todoEx = {
-  title : "title", 
-  id : 1 , 
-  done : false
+const defaultTodos = [
+  {
+    title : "npm start", 
+    id : 3 , 
+    done : false
+  },
+  {
+    title : "cd my-app", 
+    id : 2 , 
+    done : false
+  },
+  {
+    title : "npx create-react-app", 
+    id : 1 , 
+    done : true
+  },
 
-}
+
+]
 
 const Navbar = () => {
-  const [todoList , setTodoList] = useState([])
+  const [todoList , setTodoList] = useState(defaultTodos)
 
   const [inputValue, setInputValue] = useState("")
 
@@ -55,7 +68,7 @@ const Navbar = () => {
             <span onClick={() => handleDone(todo.id)} className={" done-box " + (todo.done ? "done" : "")}></span>
             <span className={' text-box ' + (todo.done ? "done" : "")}> {todo.title} </span>
           </div>
-          <ConfirmModal onOk={() => handleDelete(todo.id)} text={"Are you sure?"}  />
+          <ConfirmDeleteModal onOk={() => handleDelete(todo.id)} />
       
         </div>
 
