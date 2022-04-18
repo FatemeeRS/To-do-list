@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import ConfirmDeleteModal from './ConfirmDeleteModal/ConfirmDeleteModal';
+import ConfirmModal from '../components/Modal/Modal';
 import './NavBar.css'
 
 
@@ -28,6 +28,8 @@ const Navbar = () => {
 
   const [inputValue, setInputValue] = useState("")
 
+  const [isOpen, setIsOpen] = useState(false);
+
 
   const addTodo = (event) =>{
     if(event.key === "Enter" && inputValue.length > 0){
@@ -50,6 +52,13 @@ const Navbar = () => {
     setTodoList(todoList.map(todo => todo.id === id ? {...todo , done : !todo.done} : todo))
   }
 
+  const handleClose = ()=>{
+    setIsOpen(false)
+  }
+  const handleOpen = () =>{
+      setIsOpen(true)
+  }
+
   const handleDelete = (id) =>{
     setTodoList(todoList.filter(todo => todo.id !== id))
   }
@@ -68,7 +77,20 @@ const Navbar = () => {
             <span onClick={() => handleDone(todo.id)} className={" done-box " + (todo.done ? "done" : "")}></span>
             <span className={' text-box ' + (todo.done ? "done" : "")}> {todo.title} </span>
           </div>
-          <ConfirmDeleteModal onOk={() => handleDelete(todo.id)} />
+          <button onClick={handleOpen} className="delete-ok">
+            × 
+            <ConfirmModal 
+              isOpen={isOpen}
+              onClose={handleClose}
+              okText="Delete"
+              cancelText="Cancel"
+              text="Are you sure?"
+              onOk={() => handleDelete(todo.id)}
+            />
+         
+
+          </button>
+          
       
         </div>
 
