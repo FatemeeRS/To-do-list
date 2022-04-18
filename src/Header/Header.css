@@ -1,6 +1,8 @@
 .Header{
-    background: rgb(137,33,185);
-    background: linear-gradient(90deg, rgba(137,33,185,1) 0%, rgba(20,18,198,0.5357493339132529) 100%);
+    background: linear-gradient(90deg, rgba(195,194,200,0.5) 0%, rgba(217, 180, 223, 0.5) 51%, rgba(168,105,164,0.5) 100%) ,
+    url(../img/background.jpg);
+    background-position: center;
+    background-size: cover;
     width: 100%;
     min-height: 200px; 
 }
