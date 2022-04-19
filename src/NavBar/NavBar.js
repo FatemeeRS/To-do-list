@@ -30,6 +30,8 @@ const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const [idDelete , setIdDelete] = useState()
+
 
   const addTodo = (event) =>{
     if(event.key === "Enter" && inputValue.length > 0){
@@ -55,46 +57,54 @@ const Navbar = () => {
   const handleClose = ()=>{
     setIsOpen(false)
   }
-  const handleOpen = () =>{
+  const handleOpen = (id) =>{
       setIsOpen(true)
+      setIdDelete(id)
   }
 
-  const handleDelete = (id) =>{
-    setTodoList(todoList.filter(todo => todo.id !== id))
+  const handleDelete = () =>{
+    setTodoList(todoList.filter(todo => todo.id !== idDelete))
   }
   
   
   return(
   <div className='Navbar'> 
-    <h3> TO DO</h3>
+    <h3> TO DO </h3>
     <div className='Nabar_input'> 
         <input onKeyDown={addTodo} type="text" placeholder="new doing" value={inputValue} onChange={handleChange} />
     </div>
+
     <div className='todo-box'>
-      {todoList.map(todo => (
-        <div className='todo' > 
-          <div>
-            <span onClick={() => handleDone(todo.id)} className={" done-box " + (todo.done ? "done" : "")}></span>
-            <span className={' text-box ' + (todo.done ? "done" : "")}> {todo.title} </span>
-          </div>
-          <button onClick={handleOpen} className="delete-ok">
-            × 
             <ConfirmModal 
               isOpen={isOpen}
               onClose={handleClose}
               okText="Delete"
               cancelText="Cancel"
               text="Are you sure?"
-              onOk={() => handleDelete(todo.id)}
-            />
-         
+              onOk={handleDelete} 
+            />  
+          
+      {todoList.map(todo => (
+        <div className='todo' > 
+          <div>
+            <span onClick={() => handleDone(todo.id)} className={" done-box " + (todo.done ? "done" : "")}></span>
+            <span className={' text-box ' + (todo.done ? "done" : "")}> {todo.title} </span>
+          </div>
+          <button onClick={() => handleOpen(todo.id)} className="delete-ok"  >
 
+            ×
+            
+         
           </button>
           
-      
+         
+          
+
         </div>
+        
 
       ))}
+          
     </div>
 
   </div>
